@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# Ask the user for their age in years
+while true; do
+read -p "Enter your age in years; " age_years
+
+  # Check if the input is a number greater than 0
+  if [[ $age_years =~ ^[0-9]+$ ]] && [[ $age_years -gt 0 ]]; then
+   # Vaild input, so break out of the loop
+   break
+  else
+     # invalid input, so ask again
+     echo "Please enter a valid positive number for your age"
+    fi
+  done
+
+# Calculate age in days (approximately, not accountimh for Leap years)
+age_days=$((age_years * 365))
+
+# Display the result
+echo "You are approximately $age_days days old"
+
+# For troubleshooting: Uncomment the line below to check the value of age_years
+# echo "Debug: age_years is set to $age_years"
